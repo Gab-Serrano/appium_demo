@@ -53,5 +53,6 @@ public class PurchaseFlowTest extends BaseTest {
         assertTrue(checkoutCompletePage.isCheckoutComplete());
 
         assertEquals(checkoutCompletePage.getResultText(), "THANK YOU FOR YOU ORDER");
+
     }
 }
