@@ -5,14 +5,12 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.List;
 
 public class CartPage extends BasePage {
 
-    String PRODUCT_DESCRIPTION_SELECTOR = "new UiSelector().description(\"test-Description\")";
-    String PRODUCT_PRICE_SELECTOR = "new UiSelector().description(\"test-Price\")";
+    private String PRODUCT_DESCRIPTION_SELECTOR = "new UiSelector().description(\"test-Description\")";
+    private String PRODUCT_PRICE_SELECTOR = "new UiSelector().description(\"test-Price\")";
+    private final By checkoutButton = AppiumBy.accessibilityId("test-CHECKOUT");
 
     public CartPage(AndroidDriver driver) {
         super(driver);
@@ -64,6 +62,10 @@ public class CartPage extends BasePage {
         );
 
         return new Product(productName, productPrice);
+    }
+
+    public void clickContinueButton() {
+        click(checkoutButton);
     }
 
 

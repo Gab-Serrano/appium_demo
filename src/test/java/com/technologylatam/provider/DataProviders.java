@@ -10,6 +10,7 @@ public final class DataProviders {
 
     private static final String SCENARIO_01_DATA = ConfigManager.getProperty(ConfigParams.SCENARIO_01.value);
     private static final String SCENARIO_02_DATA = ConfigManager.getProperty(ConfigParams.SCENARIO_02.value);
+    private static final String SCENARIO_04_DATA = ConfigManager.getProperty(ConfigParams.SCENARIO_04.value);
 
     @DataProvider(name = "scenario01")
     public static Object[][] scenario01(){
@@ -35,5 +36,16 @@ public final class DataProviders {
         return result;
     }
 
+    @DataProvider(name = "scenario04")
+    public static Object[][] scenario04(){
+        User[] data = JsonReader.read(SCENARIO_04_DATA, User[].class);
+
+        Object[][] result = new Object[data.length][1];
+
+        for (int i = 0; i < data.length; i++) {
+            result[i][0] = data[i];
+        }
+        return result;
+    }
 
 }
